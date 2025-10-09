@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Amazonica Brunch - Où la nature rencontre l'élégance dans chaque bouchée. Un restaurant de brunch luxueux inspiré de la jungle.">
+    <meta name="keywords" content="brunch, restaurant, Amazonica, jungle, élégant, nature">
+    <title>Amazonica Brunch</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="index.css">
+    <!-- Font Awesome (for X / Twitter) -->
+    <script src="https://kit.fontawesome.com/57b0b278ea.js" crossorigin="anonymous"></script>
+    <!-- Ionicons (for Instagram, YouTube, TikTok) -->
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <span class="lang-en">Amazonica Brunch</span>
+            <span class="lang-fr">Amazonica Brunch</span>
+            <span class="lang-ru">Amazonica Brunch</span>
+            <span class="lang-ro">Amazonica Brunch</span>
+            <span class="lang-it">Amazonica Brunch</span>
+            <span class="lang-es">Amazonica Brunch</span>
+        </div>
+        <nav>
+            <a href="#home" class="nav-link">
+                <span class="lang-en">Home</span>
+                <span class="lang-fr">Accueil</span>
+                <span class="lang-ru">Главная</span>
+                <span class="lang-ro">Acasă</span>
+                <span class="lang-it">Home</span>
+                <span class="lang-es">Inicio</span>
+            </a>
+            <a href="#menu" class="nav-link">
+                <span class="lang-en">Menu</span>
+                <span class="lang-fr">Menu</span>
+                <span class="lang-ru">Меню</span>
+                <span class="lang-ro">Meniu</span>
+                <span class="lang-it">Menu</span>
+                <span class="lang-es">Menú</span>
+            </a>
+            <a href="#about" class="nav-link">
+                <span class="lang-en">About Us</span>
+                <span class="lang-fr">À Propos</span>
+                <span class="lang-ru">О Нас</span>
+                <span class="lang-ro">Despre Noi</span>
+                <span class="lang-it">Chi Siamo</span>
+                <span class="lang-es">Sobre Nosotros</span>
+            </a>
+            <a href="#contact" class="nav-link">
+                <span class="lang-en">Contact</span>
+                <span class="lang-fr">Contact</span>
+                <span class="lang-ru">Контакт</span>
+                <span class="lang-ro">Contact</span>
+                <span class="lang-it">Contatto</span>
+                <span class="lang-es">Contacto</span>
+            </a>
+        </nav>
+        <select id="language" onchange="changeLanguage()">
+            <option value="fr">Français</option>
+            <option value="en">English</option>
+            <option value="ru">Русский</option>
+            <option value="ro">Română</option>
+            <option value="it">Italiano</option>
+            <option value="es">Español</option>
+        </select>
+    </header>
+
+    <section id="home" class="hero">
+        <video autoplay muted loop playsinline class="hero-video">
+            <source src="restaurnat bg video.mp4" type="video/mp4">
+        </video>
+        <div class="hero-content">
+            <h1>
+                <span class="lang-en">Where nature meets elegance in every bite.</span>
+                <span class="lang-fr">Où la nature rencontre l'élégance dans chaque bouchée.</span>
+                <span class="lang-ru">Где природа встречается с элегантностью в каждом кусочке.</span>
+                <span class="lang-ro">Unde natura întâlnește eleganța în fiecare mușcătură.</span>
+                <span class="lang-it">Dove la natura incontra l'eleganza in ogni boccone.</span>
+                <span class="lang-es">Donde la naturaleza se encuentra con la elegancia en cada bocado.</span>
+            </h1>
+        </div>
+    </section>
+
+    <section id="menu" class="menu">
+        <div class="container">
+            <div class="menu-content">
+                <div class="menu-image">
+                    <img src="food pic.PNG" alt="Featured Dish">
+                </div>
+                <div class="menu-text">
+                    <h2>
+                        <span class="lang-en">Our Menu</span>
+                        <span class="lang-fr">Notre Menu</span>
+                        <span class="lang-ru">Наше Меню</span>
+                        <span class="lang-ro">Meniul Nostru</span>
+                        <span class="lang-it">Il Nostro Menu</span>
+                        <span class="lang-es">Nuestro Menú</span>
+                    </h2>
+                    <p>
+                        <span class="lang-en">Indulge in our carefully crafted brunch selections, featuring fresh, sustainable ingredients inspired by the Amazon's bounty. Each dish tells a story of nature's elegance.</span>
+                        <span class="lang-fr">Laissez-vous tenter par nos sélections de brunch soigneusement élaborées, mettant en vedette des ingrédients frais et durables inspirés des richesses de l'Amazonie. Chaque plat raconte une histoire de l'élégance de la nature.</span>
+                        <span class="lang-ru">Наслаждайтесь нашими тщательно приготовленными блюдами бранча, с использованием свежих, устойчивых ингредиентов, вдохновленных богатством Амазонии. Каждое блюдо рассказывает историю элегантности природы.</span>
+                        <span class="lang-ro">Bucurați-vă de selecțiile noastre de brunch atent elaborate, cu ingrediente proaspete și sustenabile inspirate din bogăția Amazonului. Fiecare preparat spune o poveste despre eleganța naturii.</span>
+                        <span class="lang-it">Deliziati con le nostre selezioni di brunch attentamente preparate, con ingredienti freschi e sostenibili ispirati alla ricchezza dell'Amazzonia. Ogni piatto racconta una storia dell'eleganza della natura.</span>
+                        <span class="lang-es">Deléitate con nuestras selecciones de brunch cuidadosamente elaboradas, con ingredientes frescos y sostenibles inspirados en la riqueza del Amazonas. Cada plato cuenta una historia de la elegancia de la naturaleza.</span>
+                    </p>
+                    <button class="menu-btn" onclick="openModal('menu')">
+                        <span class="lang-en">View Menu</span>
+                        <span class="lang-fr">Voir le Menu</span>
+                        <span class="lang-ru">Посмотреть Меню</span>
+                        <span class="lang-ro">Vezi Meniul</span>
+                        <span class="lang-it">Vedi Menu</span>
+                        <span class="lang-es">Ver Menú</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="chef" class="chef">
+        <div class="container">
+            <div class="chef-content">
+                <div class="chef-text">
+                    <h2>
+                        <span class="lang-en">Meet Our Chef</span>
+                        <span class="lang-fr">Rencontrez Notre Chef</span>
+                        <span class="lang-ru">Познакомьтесь с Нашим Шефом</span>
+                        <span class="lang-ro">Întâlnește-te cu Șeful Nostru</span>
+                        <span class="lang-it">Incontra il Nostro Chef</span>
+                        <span class="lang-es">Conoce a Nuestro Chef</span>
+                    </h2>
+                    <p>
+                        <span class="lang-en">Chef Elena draws inspiration from the Amazon's diverse flora and fauna. With over 15 years of experience blending traditional techniques with innovative, nature-inspired flavors, she creates dishes that are both luxurious and mindful of our planet.</span>
+                        <span class="lang-fr">Le Chef Elena s'inspire de la flore et de la faune diversifiées de l'Amazonie. Avec plus de 15 ans d'expérience dans le mélange de techniques traditionnelles avec des saveurs innovantes inspirées de la nature, elle crée des plats à la fois luxueux et respectueux de notre planète.</span>
+                        <span class="lang-ru">Шеф-повар Елена черпает вдохновение в разнообразной флоре и фауне Амазонии. С более чем 15-летним опытом сочетания традиционных техник с инновационными вкусами, вдохновленными природой, она создает блюда, которые одновременно роскошны и заботятся о нашей планете.</span>
+                        <span class="lang-ro">Șefa Elena se inspiră din flora și fauna diversă a Amazonului. Cu peste 15 ani de experiență în combinarea tehnicilor tradiționale cu arome inovatoare inspirate de natură, ea creează preparate care sunt atât luxoase, cât și conștiente de planeta noastră.</span>
+                        <span class="lang-it">Lo Chef Elena trae ispirazione dalla flora e fauna diversificate dell'Amazzonia. Con oltre 15 anni di esperienza nel combinare tecniche tradizionali con sapori innovativi ispirati alla natura, crea piatti che sono sia lussuosi che attenti al nostro pianeta.</span>
+                        <span class="lang-es">La Chef Elena se inspira en la diversa flora y fauna del Amazonas. Con más de 15 años de experiencia combinando técnicas tradicionales con sabores innovadores inspirados en la naturaleza, crea platos que son tanto lujosos como conscientes de nuestro planeta.</span>
+                    </p>
+                </div>
+                <div class="chef-image">
+                    <img src="chef pict.png" alt="Chef Elena">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about-gallery" class="about-gallery">
+        <div class="container">
+            <h2>
+                <span class="lang-en">About Us</span>
+                <span class="lang-fr">À Propos de Nous</span>
+                <span class="lang-ru">О Нас</span>
+                <span class="lang-ro">Despre Noi</span>
+                <span class="lang-it">Chi Siamo</span>
+                <span class="lang-es">Sobre Nosotros</span>
+            </h2>
+            <p>
+                <span class="lang-en">Amazonica Brunch is a sanctuary where the lush beauty of the jungle intertwines with culinary artistry. Inspired by the Amazon's vibrant ecosystem, we celebrate nature's bounty through exquisite brunch dishes that honor animals, plants, and the delicate balance of life. Our philosophy is simple: every meal is a journey into elegance and sustainability.</span>
+                <span class="lang-fr">Amazonica Brunch est un sanctuaire où la beauté luxuriante de la jungle s'entremêle avec l'art culinaire. Inspirés par l'écosystème vibrant de l'Amazonie, nous célébrons les richesses de la nature à travers des plats de brunch exquis qui honorent les animaux, les plantes et l'équilibre délicat de la vie. Notre philosophie est simple : chaque repas est un voyage vers l'élégance et la durabilité.</span>
+                <span class="lang-ru">Amazonica Brunch - это убежище, где пышная красота джунглей переплетается с кулинарным искусством. Вдохновленные vibrantной экосистемой Амазонии, мы празднуем дары природы через изысканные блюда бранча, которые чтят животных, растения и хрупкий баланс жизни. Наша философия проста: каждый прием пищи - это путешествие в элегантность и устойчивость.</span>
+                <span class="lang-ro">Amazonica Brunch este un sanctuar unde frumusețea luxuriantă a junglei se împletește cu arta culinară. Inspirați de ecosistemul vibrant al Amazonului, sărbătorim bogăția naturii prin preparate de brunch rafinate care onorează animalele, plantele și echilibrul delicat al vieții. Filosofia noastră este simplă: fiecare masă este o călătorie către eleganța și sustenabilitate.</span>
+                <span class="lang-it">Amazonica Brunch è un santuario dove la bellezza lussureggiante della giungla si intreccia con l'arte culinaria. Ispirati dall'ecosistema vibrante dell'Amazzonia, celebriamo i doni della natura attraverso piatti di brunch squisiti che onorano animali, piante e il delicato equilibrio della vita. La nostra filosofia è semplice: ogni pasto è un viaggio verso l'eleganza e la sostenibilità.</span>
+                <span class="lang-es">Amazonica Brunch es un santuario donde la belleza exuberante de la jungla se entrelaza con el arte culinario. Inspirados en el vibrante ecosistema del Amazonas, celebramos los dones de la naturaleza a través de exquisitos platos de brunch que honran a los animales, plantas y el delicado equilibrio de la vida. Nuestra filosofía es simple: cada comida es un viaje hacia la elegancia y la sostenibilidad.</span>
+            </p>
+            
+            <div class="gallery-container">
+                <div class="gallery-horizontal">
+                    <img src="restaurant pic 1.JPG" alt="Restaurant 1" loading="lazy" onclick="openGalleryModal(this.src)">
+                    <img src="restaurant pic 2.JPG" alt="Restaurant 2" loading="lazy" onclick="openGalleryModal(this.src)">
+                    <img src="restaurant pic 3.JPG" alt="Restaurant 3" loading="lazy" onclick="openGalleryModal(this.src)">
+                    <img src="restaurant pic 4.JPG" alt="Restaurant 4" loading="lazy" onclick="openGalleryModal(this.src)">
+                    <img src="restaurant pic 5.JPG" alt="Restaurant 5" loading="lazy" onclick="openGalleryModal(this.src)">
+                    <img src="restaurant pic 6.JPG" alt="Restaurant 6" loading="lazy" onclick="openGalleryModal(this.src)">
+                    <img src="restaurant pic 7.JPG" alt="Restaurant 7" loading="lazy" onclick="openGalleryModal(this.src)">
+                    <img src="restaurant pic 8.JPG" alt="Restaurant 8" loading="lazy" onclick="openGalleryModal(this.src)">
+                    <img src="restaurant pic 9.JPG" alt="Restaurant 9" loading="lazy" onclick="openGalleryModal(this.src)">
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>
+                <span class="lang-en">Contact & Location</span>
+                <span class="lang-fr">Contact & Emplacement</span>
+                <span class="lang-ru">Контакт & Местоположение</span>
+                <span class="lang-ro">Contact & Locație</span>
+                <span class="lang-it">Contatto & Posizione</span>
+                <span class="lang-es">Contacto & Ubicación</span>
+            </h2>
+            <div class="contact-content">
+                <div class="contact-form">
+                    <form>
+                        <input type="text" placeholder="Votre Nom" required>
+                        <input type="email" placeholder="Votre Email" required>
+                        <textarea placeholder="Votre Message" rows="5" required></textarea>
+                        <button type="submit">
+                            <span class="lang-en">Send Message</span>
+                            <span class="lang-fr">Envoyer le Message</span>
+                            <span class="lang-ru">Отправить Сообщение</span>
+                            <span class="lang-ro">Trimite Mesaj</span>
+                            <span class="lang-it">Invia Messaggio</span>
+                            <span class="lang-es">Enviar Mensaje</span>
+                        </button>
+                    </form>
+                </div>
+                <div class="contact-info">
+                    <h3>
+                        <span class="lang-en">Visit Us</span>
+                        <span class="lang-fr">Nous Visiter</span>
+                        <span class="lang-ru">Посетите Нас</span>
+                        <span class="lang-ro">Vizitați-ne</span>
+                        <span class="lang-it">Visitaci</span>
+                        <span class="lang-es">Visítanos</span>
+                    </h3>
+                    <p><strong>
+                        <span class="lang-en">Address:</span>
+                        <span class="lang-fr">Adresse:</span>
+                        <span class="lang-ru">Адрес:</span>
+                        <span class="lang-ro">Adresă:</span>
+                        <span class="lang-it">Indirizzo:</span>
+                        <span class="lang-es">Dirección:</span>
+                    <a href="https://maps.app.goo.gl/cFgDxnomjKkHBZdK8" target="_blank" title="open in maps">13 Rue Lycée</a>
+                    <p><strong>
+                        <span class="lang-en">Phone:</span>
+                        <span class="lang-fr">Téléphone:</span>
+                        <span class="lang-ru">Телефон:</span>
+                        <span class="lang-ro">Telefon:</span>
+                        <span class="lang-it">Telefono:</span>
+                        <span class="lang-es">Teléfono:</span>
+                    </strong>+33 7 12 34 56 78</p>
+                    <p><strong>
+                        <span class="lang-en">Hours:</span>
+                        <span class="lang-fr">Heures:</span>
+                        <span class="lang-ru">Часы:</span>
+                        <span class="lang-ro">Ore:</span>
+                        <span class="lang-it">Orari:</span>
+                        <span class="lang-es">Horarios:</span>
+                    </strong> Mon-Sun: 8:00 AM - 4:00 PM</p>
+                    <div class="map-placeholder">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="social-icons">
+            <a href="https://www.instagram.com/c.mihai16/#" target="_blank" aria-label="Instagram"><ion-icon name="logo-instagram"></ion-icon></a>
+            <a href="https://x.com/" target="_blank" aria-label="X (Twitter)"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="https://www.youtube.com/@CortacMihai" target="_blank" aria-label="YouTube"><ion-icon name="logo-youtube"></ion-icon></a>
+            <a href="https://www.tiktok.com/" target="_blank" aria-label="TikTok"><ion-icon name="logo-tiktok"></ion-icon></a>
+        </div>
+    </footer>
+
+
+
+    <!-- Menu Modal -->
+    <div id="menu-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('menu')">&times;</span>
+            <h2>
+                <span class="lang-en">Our Menu</span>
+                <span class="lang-fr">Notre Menu</span>
+                <span class="lang-ru">Наше Меню</span>
+                <span class="lang-ro">Meniul Nostru</span>
+                <span class="lang-it">Il Nostro Menu</span>
+                <span class="lang-es">Nuestro Menú</span>
+            </h2>
+            <div class="menu-categories">
+                <div class="category">
+                    <h3 onclick="toggleCategory(this)">
+                        <span class="lang-en">Breakfast</span>
+                        <span class="lang-fr">Petit-déjeuner</span>
+                        <span class="lang-ru">Завтрак</span>
+                        <span class="lang-ro">Mic Dejun</span>
+                        <span class="lang-it">Colazione</span>
+                        <span class="lang-es">Desayuno</span>
+                        <span class="arrow">▼</span>
+                    </h3>
+                    <div class="dishes">
+                        <div class="dish">
+                            <div class="dish-row">
+                                <span class="dish-name">
+                                    <span class="lang-en">Avocado Toast with Poached Eggs</span>
+                                    <span class="lang-fr">Toast à l'Avocat avec Œufs Pochés</span>
+                                    <span class="lang-ru">Тост с Авокадо и Яйцами Пашот</span>
+                                    <span class="lang-ro">Pâine prăjită cu avocado și ouă fierte</span>
+                                    <span class="lang-it">Toast all'Avocado con Uova in Camicia</span>
+                                    <span class="lang-es">Tostada de Aguacate con Huevos Escalados</span>
+                                </span>
+                                <span class="dish-price">14€</span>
+                            </div>
+                            <span class="dish-ingredients">
+                                <span class="lang-en">(Avocado, Poached Eggs, Cherry Tomatoes, Herbs)</span>
+                                <span class="lang-fr">(Avocat, Œufs Pochés, Tomates Cerises, Herbes)</span>
+                                <span class="lang-ru">(Авокадо, Яйца Пашот, Вишневые Томаты, Травы)</span>
+                                <span class="lang-ro">(Avocado, Ouă fierte, Roșii cherry, Ierburi)</span>
+                                <span class="lang-it">(Avocado, Uova in Camicia, Pomodori Ciliegino, Erbe)</span>
+                                <span class="lang-es">(Aguacate, Huevos Escalados, Tomates Cherry, Hierbas)</span>
+                            </span>
+                        </div>
+                        <div class="dish">
+                            <div class="dish-row">
+                                <span class="dish-name">
+                                    <span class="lang-en">Smoked Salmon Benedict</span>
+                                    <span class="lang-fr">Saumon Fumé Benedict</span>
+                                    <span class="lang-ru">Бенедикт с Копченым Лососем</span>
+                                    <span class="lang-ro">Somon afumat Benedict</span>
+                                    <span class="lang-it">Benedict al Salmone Affumicato</span>
+                                    <span class="lang-es">Benedict de Salmón Ahumado</span>
+                                </span>
+                                <span class="dish-price">18€</span>
+                            </div>
+                            <span class="dish-ingredients">
+                                <span class="lang-en">(Smoked Salmon, Poached Egg, English Muffin, Hollandaise)</span>
+                                <span class="lang-fr">(Saumon Fumé, Œuf Poché, Muffin Anglais, Hollandaise)</span>
+                                <span class="lang-ru">(Копченый Лосось, Яйцо Пашот, Английский Маффин, Голландский Соус)</span>
+                                <span class="lang-ro">(Somon afumat, Ou fiert, Muffin englezesc, Sos olandez)</span>
+                                <span class="lang-it">(Salmone Affumicato, Uovo in Camicia, Muffin Inglese, Olandese)</span>
+                                <span class="lang-es">(Salmón Ahumado, Huevo Escalado, Muffin Inglés, Hollandaise)</span>
+                            </span>
+                        </div>
+                        <div class="dish">
+                            <div class="dish-row">
+                                <span class="dish-name">
+                                    <span class="lang-en">Vegan Pancakes with Berry Compote</span>
+                                    <span class="lang-fr">Crêpes Véganes avec Compote de Baies</span>
+                                    <span class="lang-ru">Веганские Блинчики с Ягодным Компотом</span>
+                                    <span class="lang-ro">Clătite vegane cu compot de fructe de pădure</span>
+                                    <span class="lang-it">Pancake Vegani con Composta di Bacche</span>
+                                    <span class="lang-es">Panqueques Veganos con Compota de Bayas</span>
+                                </span>
+                                <span class="dish-price">12€</span>
+                            </div>
+                            <span class="dish-ingredients">
+                                <span class="lang-en">(Oat Flour, Plant Milk, Mixed Berries, Maple Syrup)</span>
+                                <span class="lang-fr">(Farine d'Avoine, Lait Végétal, Baies Mixtes, Sirop d'Érable)</span>
+                                <span class="lang-ru">(Овсяная Мука, Растительное Молоко, Смешанные Ягоды, Кленовый Сироп)</span>
+                                <span class="lang-ro">(Făină de ovăz, Lapte vegetal, Fructe de pădure mixte, Sirop de arțar)</span>
+                                <span class="lang-it">(Farina d'Avena, Latte Vegetale, Bacche Miste, Sciroppo d'Acero)</span>
+                                <span class="lang-es">(Harina de Avena, Leche Vegetal, Bayas Mixtas, Jarabe de Arce)</span>
+                            </span>
+                        </div>
+                        <div class="dish">
+                            <div class="dish-row">
+                                <span class="dish-name">
+                                    <span class="lang-en">Shakshuka with Feta</span>
+                                    <span class="lang-fr">Shakshuka avec Feta</span>
+                                    <span class="lang-ru">Шакшука с Фетой</span>
+                                    <span class="lang-ro">Shakshuka cu feta</span>
+                                    <span class="lang-it">Shakshuka con Feta</span>
+                                    <span class="lang-es">Shakshuka con Feta</span>
+                                </span>
+                                <span class="dish-price">16€</span>
+                            </div>
+                            <span class="dish-ingredients">
+                                <span class="lang-en">(Tomatoes, Eggs, Feta Cheese, Spices, Bread)</span>
+                                <span class="lang-fr">(Tomates, Œufs, Fromage Feta, Épices, Pain)</span>
+                                <span class="lang-ru">(Томаты, Яйца, Сыр Фета, Специи, Хлеб)</span>
+                                <span class="lang-ro">(Roșii, Ouă, Brânză feta, Condimente, Pâine)</span>
+                                <span class="lang-it">(Pomodori, Uova, Formaggio Feta, Spezie, Pane)</span>
+                                <span class="lang-es">(Tomates, Huevos, Queso Feta, Especias, Pan)</span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="category">
+                    <h3 onclick="toggleCategory(this)">
+                        <span class="lang-en">Drinks</span>
+                        <span class="lang-fr">Boissons</span>
+                        <span class="lang-ru">Напитки</span>
+                        <span class="lang-ro">Băuturi</span>
+                        <span class="lang-it">Bevande</span>
+                        <span class="lang-es">Bebidas</span>
+                        <span class="arrow">▼</span>
+                    </h3>
+                    <div class="dishes">
+                        <div class="dish">
+                            <div class="dish-row">
+                                <span class="dish-name">
+                                    <span class="lang-en">Cold Brew Coffee</span>
+                                    <span class="lang-fr">Café Cold Brew</span>
+                                    <span class="lang-ru">Холодный Заваренный Кофе</span>
+                                    <span class="lang-ro">Cafea cold brew</span>
+                                    <span class="lang-it">Caffè Cold Brew</span>
+                                    <span class="lang-es">Café Cold Brew</span>
+                                </span>
+                                <span class="dish-price">5€</span>
+                            </div>
+                            <span class="dish-ingredients">
+                                <span class="lang-en">(Cold Brewed Coffee, Ice, Optional Milk)</span>
+                                <span class="lang-fr">(Café Infusé à Froid, Glace, Lait Optionnel)</span>
+                                <span class="lang-ru">(Холодно Заваренный Кофе, Лед, Опциональное Молоко)</span>
+                                <span class="lang-ro">(Cafea infuzată la rece, Gheață, Lapte opțional)</span>
+                                <span class="lang-it">(Caffè Cold Brew, Ghiaccio, Latte Opzionale)</span>
+                                <span class="lang-es">(Café Cold Brew, Hielo, Leche Opcional)</span>
+                            </span>
+                        </div>
+                        <div class="dish">
+                            <div class="dish-row">
+                                <span class="dish-name">
+                                    <span class="lang-en">Fresh Orange Juice</span>
+                                    <span class="lang-fr">Jus d'Orange Frais</span>
+                                    <span class="lang-ru">Свежий Апельсиновый Сок</span>
+                                    <span class="lang-ro">Suc de portocale proaspăt</span>
+                                    <span class="lang-it">Succo d'Arancia Fresco</span>
+                                    <span class="lang-es">Jugo de Naranja Fresco</span>
+                                </span>
+                                <span class="dish-price">6€</span>
+                            </div>
+                            <span class="dish-ingredients">
+                                <span class="lang-en">(Fresh Squeezed Oranges)</span>
+                                <span class="lang-fr">(Oranges Pressées Fraîches)</span>
+                                <span class="lang-ru">(Свежие Выжатые Апельсины)</span>
+                                <span class="lang-ro">(Portocale proaspăt stoarse)</span>
+                                <span class="lang-it">(Arance Spremute Fresche)</span>
+                                <span class="lang-es">(Naranjas Exprimidas Frescas)</span>
+                            </span>
+                        </div>
+                        <div class="dish">
+                            <div class="dish-row">
+                                <span class="dish-name">
+                                    <span class="lang-en">Matcha Latte</span>
+                                    <span class="lang-fr">Matcha Latte</span>
+                                    <span class="lang-ru">Матча Латте</span>
+                                    <span class="lang-ro">Matcha latte</span>
+                                    <span class="lang-it">Matcha Latte</span>
+                                    <span class="lang-es">Matcha Latte</span>
+                                </span>
+                                <span class="dish-price">7€</span>
+                            </div>
+                            <span class="dish-ingredients">
+                                <span class="lang-en">(Matcha Powder, Steamed Milk, Honey)</span>
+                                <span class="lang-fr">(Poudre de Matcha, Lait Vapeur, Miel)</span>
+                                <span class="lang-ru">(Порошок Матча, Парное Молоко, Мед)</span>
+                                <span class="lang-ro">(Praf de matcha, Lapte aburit, Miere)</span>
+                                <span class="lang-it">(Polvere di Matcha, Latte Vapore, Miele)</span>
+                                <span class="lang-es">(Polvo de Matcha, Leche Vaporizada, Miel)</span>
+                            </span>
+                        </div>
+                        <div class="dish">
+                            <div class="dish-row">
+                                <span class="dish-name">
+                                    <span class="lang-en">Herbal Infusions</span>
+                                    <span class="lang-fr">Infusions aux Herbes</span>
+                                    <span class="lang-ru">Травяные Настои</span>
+                                    <span class="lang-ro">Infuzii din plante</span>
+                                    <span class="lang-it">Infusi alle Erbe</span>
+                                    <span class="lang-es">Infusiones de Hierbas</span>
+                                </span>
+                                <span class="dish-price">4€</span>
+                            </div>
+                            <span class="dish-ingredients">
+                                <span class="lang-en">(Chamomile, Peppermint, Lemon Balm)</span>
+                                <span class="lang-fr">(Camomille, Menthe Poivrée, Mélisse)</span>
+                                <span class="lang-ru">(Ромашка, Мята Перечная, Мелисса)</span>
+                                <span class="lang-ro">(Mușețel, Mentă piperată, Lămâiță)</span>
+                                <span class="lang-it">(Camomilla, Menta Piperita, Melissa)</span>
+                                <span class="lang-es">(Manzanilla, Menta Piperita, Melisa)</span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="category">
+                    <h3 onclick="toggleCategory(this)">
+                        <span class="lang-en">Desserts</span>
+                        <span class="lang-fr">Desserts</span>
+                        <span class="lang-ru">Десерты</span>
+                        <span class="lang-ro">Deserturi</span>
+                        <span class="lang-it">Dessert</span>
+                        <span class="lang-es">Postres</span>
+                        <span class="arrow">▼</span>
+                    </h3>
+                    <div class="dishes">
+                        <div class="dish">
+                            <div class="dish-row">
+                                <span class="dish-name">
+                                    <span class="lang-en">Chocolate Avocado Mousse</span>
+                                    <span class="lang-fr">Mousse au Chocolat et Avocat</span>
+                                    <span class="lang-ru">Мусс из Шоколада и Авокадо</span>
+                                    <span class="lang-ro">Mousse de ciocolată și avocado</span>
+                                    <span class="lang-it">Mousse al Cioccolato e Avocado</span>
+                                    <span class="lang-es">Mousse de Chocolate y Aguacate</span>
+                                </span>
+                                <span class="dish-price">8€</span>
+                            </div>
+                            <span class="dish-ingredients">
+                                <span class="lang-en">(Avocado, Dark Chocolate, Cocoa, Vanilla)</span>
+                                <span class="lang-fr">(Avocat, Chocolat Noir, Cacao, Vanille)</span>
+                                <span class="lang-ru">(Авокадо, Темный Шоколад, Какао, Ваниль)</span>
+                                <span class="lang-ro">(Avocado, Ciocolată neagră, Cacao, Vanilie)</span>
+                                <span class="lang-it">(Avocado, Cioccolato Fondente, Cacao, Vaniglia)</span>
+                                <span class="lang-es">(Aguacate, Chocolate Oscuro, Cacao, Vainilla)</span>
+                            </span>
+                        </div>
+                        <div class="dish">
+                            <div class="dish-row">
+                                <span class="dish-name">
+                                    <span class="lang-en">Coconut Chia Pudding</span>
+                                    <span class="lang-fr">Pudding Chia à la Noix de Coco</span>
+                                    <span class="lang-ru">Пудинг из Чиа и Кокоса</span>
+                                    <span class="lang-ro">Pudding de chia cu nucă de cocos</span>
+                                    <span class="lang-it">Budino di Chia al Cocco</span>
+                                    <span class="lang-es">Pudín de Chia con Coco</span>
+                                </span>
+                                <span class="dish-price">7€</span>
+                            </div>
+                            <span class="dish-ingredients">
+                                <span class="lang-en">(Chia Seeds, Coconut Milk, Mango, Lime)</span>
+                                <span class="lang-fr">(Graines de Chia, Lait de Coco, Mangue, Citron Vert)</span>
+                                <span class="lang-ru">(Семена Чиа, Кокосовое Молоко, Манго, Лайм)</span>
+                                <span class="lang-ro">(Semințe de chia, Lapte de cocos, Mango, Lime)</span>
+                                <span class="lang-it">(Semi di Chia, Latte di Cocco, Mango, Lime)</span>
+                                <span class="lang-es">(Semillas de Chia, Leche de Coco, Mango, Lima)</span>
+                            </span>
+                        </div>
+                        <div class="dish">
+                            <div class="dish-row">
+                                <span class="dish-name">
+                                    <span class="lang-en">Berry Parfait</span>
+                                    <span class="lang-fr">Parfait aux Baies</span>
+                                    <span class="lang-ru">Парфе с Ягодами</span>
+                                    <span class="lang-ro">Parfait cu fructe de pădure</span>
+                                    <span class="lang-it">Parfait alle Bacche</span>
+                                    <span class="lang-es">Parfait de Bayas</span>
+                                </span>
+                                <span class="dish-price">9€</span>
+                            </div>
+                            <span class="dish-ingredients">
+                                <span class="lang-en">(Greek Yogurt, Mixed Berries, Granola, Honey)</span>
+                                <span class="lang-fr">(Yaourt Grec, Baies Mixtes, Granola, Miel)</span>
+                                <span class="lang-ru">(Греческий Йогурт, Смешанные Ягоды, Гранола, Мед)</span>
+                                <span class="lang-ro">(Iaurt grecesc, Fructe de pădure mixte, Granola, Miere)</span>
+                                <span class="lang-it">(Yogurt Greco, Bacche Miste, Granola, Miele)</span>
+                                <span class="lang-es">(Yogur Griego, Bayas Mixtas, Granola, Miel)</span>
+                            </span>
+                        </div>
+                        <div class="dish">
+                            <div class="dish-row">
+                                <span class="dish-name">
+                                    <span class="lang-en">Gluten-Free Brownies</span>
+                                    <span class="lang-fr">Brownies Sans Gluten</span>
+                                    <span class="lang-ru">Безглютеновые Брауни</span>
+                                    <span class="lang-ro">Brownies fără gluten</span>
+                                    <span class="lang-it">Brownies Senza Glutine</span>
+                                    <span class="lang-es">Brownies Sin Gluten</span>
+                                </span>
+                                <span class="dish-price">6€</span>
+                            </div>
+                            <span class="dish-ingredients">
+                                <span class="lang-en">(Almond Flour, Dark Chocolate, Eggs, Walnuts)</span>
+                                <span class="lang-fr">(Farine d'Amandes, Chocolat Noir, Œufs, Noix)</span>
+                                <span class="lang-ru">(Миндальная Мука, Темный Шоколад, Яйца, Орехи)</span>
+                                <span class="lang-ro">(Făină de migdale, Ciocolată neagră, Ouă, Nucșoară)</span>
+                                <span class="lang-it">(Farina di Mandorle, Cioccolato Fondente, Uova, Noci)</span>
+                                <span class="lang-es">(Harina de Almendras, Chocolate Oscuro, Huevos, Nueces)</span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Gallery Modal -->
+    <div id="gallery-modal" class="modal">
+        <div class="modal-content gallery-modal-content">
+            <span class="close" onclick="closeModal('gallery')">&times;</span>
+            <img id="gallery-image" src="" alt="Gallery Image">
+            <button class="nav-btn prev" onclick="navigateGallery(-1)">&#10094;</button>
+            <button class="nav-btn next" onclick="navigateGallery(1)">&#10095;</button>
+        </div>
+    </div>
+
+    <script src="index.js"></script>
+</body>
+</html>
+
+ 
