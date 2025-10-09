@@ -47,16 +47,7 @@ function changeLanguage() {
         }
     });
 
-    // Update placeholders for contact form
-    const placeholders = {
-        'fr': { name: 'Votre Nom', email: 'Votre Email', message: 'Votre Message' },
-        'en': { name: 'Your Name', email: 'Your Email', message: 'Your Message' },
-        'ru': { name: 'Ваше Имя', email: 'Ваш Email', message: 'Ваше Сообщение' },
-        'ro': { name: 'Numele Tău', email: 'Email-ul Tău', message: 'Mesajul Tău' },
-        'it': { name: 'Il Tuo Nome', email: 'La Tua Email', message: 'Il Tuo Messaggio' },
-        'es': { name: 'Tu Nombre', email: 'Tu Email', message: 'Tu Mensaje' }
-    };
-
+    
     const form = document.querySelector('.contact-form form');
     if (form) {
         form.querySelector('input[type="text"]').placeholder = placeholders[selectedLang].name;
@@ -97,6 +88,24 @@ function navigateGallery(direction) {
     if (currentGalleryIndex >= galleryImages.length) currentGalleryIndex = 0;
     document.getElementById('gallery-image').src = galleryImages[currentGalleryIndex];
 }
+
+// Toggle mobile menu
+function toggleMenu() {
+    const nav = document.getElementById('nav-menu');
+    const hamburger = document.querySelector('.hamburger');
+    nav.classList.toggle('open');
+    hamburger.classList.toggle('active');
+}
+
+// Close menu when clicking a link
+document.addEventListener('click', (e) => {
+    const nav = document.getElementById('nav-menu');
+    const hamburger = document.querySelector('.hamburger');
+    if (nav.classList.contains('open') && !e.target.closest('header')) {
+        nav.classList.remove('open');
+        hamburger.classList.remove('active');
+    }
+});
 
 // Handle reservation form submission
 document.addEventListener('DOMContentLoaded', () => {
