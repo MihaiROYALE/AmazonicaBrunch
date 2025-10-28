@@ -97,6 +97,31 @@ function toggleMenu() {
     hamburger.classList.toggle('active');
 }
 
+// Scrollspy functionality
+function updateActiveNavLink() {
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    let current = '';
+
+    sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+        if (pageYOffset >= sectionTop - sectionHeight / 3) {
+            current = section.getAttribute('id');
+        }
+    });
+
+    navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === `#${current}`) {
+            link.classList.add('active');
+        }
+    });
+}
+
+window.addEventListener('scroll', updateActiveNavLink);
+
 // Close menu when clicking a link
 document.addEventListener('click', (e) => {
     const nav = document.getElementById('nav-menu');
@@ -123,28 +148,37 @@ document.addEventListener('DOMContentLoaded', () => {
     changeLanguage();
 
     // Add fade-in animation on scroll
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.style.animation = 'fadeIn 1s ease-in forwards';
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+    
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'fadeInUp 1.2s ease-out forwards';
+                }
+            });
+        }, observerOptions);
+    
+        // Observe sections for animations
+        const sections = document.querySelectorAll('section:not(#home)');
+        sections.forEach(section => {
+            observer.observe(section);
+        });
+    
+        // Observe gallery images for fade-in
+        const galleryImagesEls = document.querySelectorAll('.gallery-container img');
+        galleryImagesEls.forEach(img => {
+            observer.observe(img);
+        });
+    
+        // Parallax effect for hero video
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const heroVideo = document.querySelector('.hero-video');
+            if (heroVideo) {
+                heroVideo.style.transform = `translateY(${scrolled * 0.5}px)`;
             }
         });
-    }, observerOptions);
-
-    // Observe sections for animations
-    const sections = document.querySelectorAll('section:not(#home)');
-    sections.forEach(section => {
-        observer.observe(section);
-    });
-
-    // Observe gallery images for fade-in
-    const galleryImagesEls = document.querySelectorAll('.gallery-container img');
-    galleryImagesEls.forEach(img => {
-        observer.observe(img);
-    });
 });
