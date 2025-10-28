@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Amazonica Brunch - Où la nature rencontre l'élégance dans chaque bouchée. Un restaurant de brunch luxueux inspiré de la jungle.">
     <meta name="keywords" content="brunch, restaurant, Amazonica, jungle, élégant, nature">
+    <meta name="author" content="Amazonica Brunch">
+    <meta name="robots" content="index, follow">
     <title>Amazonica Brunch</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -43,7 +45,7 @@
                 <span class="lang-it">Menu</span>
                 <span class="lang-es">Menú</span>
             </a>
-            <a href="#about" class="nav-link">
+            <a href="#about-gallery" class="nav-link">
                 <span class="lang-en">About Us</span>
                 <span class="lang-fr">À Propos</span>
                 <span class="lang-ru">О Нас</span>
@@ -75,8 +77,9 @@
         </button>
     </header>
 
+    <main id="main-content">
     <section id="home" class="hero">
-        <video autoplay muted loop playsinline class="hero-video">
+        <video autoplay muted loop playsinline class="hero-video" loading="lazy">
             <source src="restaurnat bg video.mp4" type="video/mp4">
         </video>
         <div class="hero-content">
@@ -88,14 +91,24 @@
                 <span class="lang-it">Dove la natura incontra l'eleganza in ogni boccone.</span>
                 <span class="lang-es">Donde la naturaleza se encuentra con la elegancia en cada bocado.</span>
             </h1>
+            <a href="#menu" class="reserve-btn">
+                <span class="lang-en">Explore Menu</span>
+                <span class="lang-fr">Explorer le Menu</span>
+                <span class="lang-ru">Посмотреть Меню</span>
+                <span class="lang-ro">Explorați Meniul</span>
+                <span class="lang-it">Esplora Menu</span>
+                <span class="lang-es">Explorar Menú</span>
+            </a>
         </div>
     </section>
+
+    </main>
 
     <section id="menu" class="menu">
         <div class="container">
             <div class="menu-content">
                 <div class="menu-image">
-                    <img src="food pic.PNG" alt="Featured Dish">
+                    <img src="food pic.PNG" alt="Artistic presentation of our signature brunch dish with fresh ingredients" loading="lazy">
                 </div>
                 <div class="menu-text">
                     <h2>
@@ -127,7 +140,7 @@
         </div>
     </section>
 
-    <section id="chef" class="chef">
+    <section class="chef">
         <div class="container">
             <div class="chef-content">
                 <div class="chef-text">
@@ -149,7 +162,7 @@
                     </p>
                 </div>
                 <div class="chef-image">
-                    <img src="chef pict.png" alt="Chef Elena">
+                    <img src="chef pict.png" alt="Chef Elena, our master chef with 15 years of experience in sustainable cuisine" loading="lazy">
                 </div>
             </div>
         </div>
@@ -176,15 +189,15 @@
             
             <div class="gallery-container">
                 <div class="gallery-horizontal">
-                    <img src="restaurant pic 1.JPG" alt="Restaurant 1" loading="lazy" onclick="openGalleryModal(this.src)">
-                    <img src="restaurant pic 2.JPG" alt="Restaurant 2" loading="lazy" onclick="openGalleryModal(this.src)">
-                    <img src="restaurant pic 3.JPG" alt="Restaurant 3" loading="lazy" onclick="openGalleryModal(this.src)">
-                    <img src="restaurant pic 4.JPG" alt="Restaurant 4" loading="lazy" onclick="openGalleryModal(this.src)">
-                    <img src="restaurant pic 5.JPG" alt="Restaurant 5" loading="lazy" onclick="openGalleryModal(this.src)">
-                    <img src="restaurant pic 6.JPG" alt="Restaurant 6" loading="lazy" onclick="openGalleryModal(this.src)">
-                    <img src="restaurant pic 7.JPG" alt="Restaurant 7" loading="lazy" onclick="openGalleryModal(this.src)">
-                    <img src="restaurant pic 8.JPG" alt="Restaurant 8" loading="lazy" onclick="openGalleryModal(this.src)">
-                    <img src="restaurant pic 9.JPG" alt="Restaurant 9" loading="lazy" onclick="openGalleryModal(this.src)">
+                    <img src="restaurant pic 1.JPG" alt="Elegant restaurant interior with natural lighting" loading="lazy" onclick="openGalleryModal(this.src)">
+                    <img src="restaurant pic 2.JPG" alt="Fresh ingredients display in the kitchen" loading="lazy" onclick="openGalleryModal(this.src)">
+                    <img src="restaurant pic 3.JPG" alt="Cozy dining area with jungle-inspired decor" loading="lazy" onclick="openGalleryModal(this.src)">
+                    <img src="restaurant pic 4.JPG" alt="Chef preparing sustainable dishes" loading="lazy" onclick="openGalleryModal(this.src)">
+                    <img src="restaurant pic 5.JPG" alt="Outdoor seating area surrounded by greenery" loading="lazy" onclick="openGalleryModal(this.src)">
+                    <img src="restaurant pic 6.JPG" alt="Artistic plate presentation" loading="lazy" onclick="openGalleryModal(this.src)">
+                    <img src="restaurant pic 7.JPG" alt="Brunch setup with fresh flowers" loading="lazy" onclick="openGalleryModal(this.src)">
+                    <img src="restaurant pic 8.JPG" alt="Sustainable farming partnership showcase" loading="lazy" onclick="openGalleryModal(this.src)">
+                    <img src="restaurant pic 9.JPG" alt="Evening ambiance with soft lighting" loading="lazy" onclick="openGalleryModal(this.src)">
                 </div>
             </div>
         </div>
@@ -205,10 +218,10 @@
             <div class="contact-content">
                 <div class="contact-form">
                     <form>
-                        <input type="text" placeholder="Votre Nom" required>
-                        <input type="email" placeholder="Votre Email" required>
-                        <textarea placeholder="Votre Message" rows="5" required></textarea>
-                        <button type="submit">
+                        <input type="text" placeholder="Votre Nom" required aria-label="Votre nom">
+                        <input type="email" placeholder="Votre Email" required aria-label="Votre adresse email">
+                        <textarea placeholder="Votre Message" rows="5" required aria-label="Votre message"></textarea>
+                        <button type="submit" aria-label="Envoyer le message">
                             <span class="lang-en">Send Message</span>
                             <span class="lang-fr">Envoyer le Message</span>
                             <span class="lang-ru">Отправить Сообщение</span>
@@ -244,13 +257,13 @@
                         <span class="lang-es">Teléfono:</span>
                     </strong>+33 7 12 34 56 78</p>
                     <p><strong>
-                        <span class="lang-en">Hours:</span>
-                        <span class="lang-fr">Heures:</span>
-                        <span class="lang-ru">Часы:</span>
-                        <span class="lang-ro">Ore:</span>
-                        <span class="lang-it">Orari:</span>
-                        <span class="lang-es">Horarios:</span>
-                    </strong> Mon-Sun: 8:00 AM - 4:00 PM</p>
+                        <span class="lang-en">Hours: Mon–Sun 8:00 AM – 4:00 PM</span>
+                        <span class="lang-fr">Heures: Lun–Dim 8h00 – 16h00</span>
+                        <span class="lang-ru">Часы работы: Пн–Вс 8:00 – 16:00</span>
+                        <span class="lang-ro">Ore: Lun–Dum 8:00 – 16:00</span>
+                        <span class="lang-it">Orari: Lun–Dom 8:00 – 16:00</span>
+                        <span class="lang-es">Horarios: Lun–Dom 8:00 – 16:00</span>
+                        </strong></p>
                     <div class="map-placeholder">
                     </div>
                 </div>
@@ -260,10 +273,10 @@
 
     <footer>
         <div class="social-icons">
-            <a href="https://www.instagram.com/c.mihai16/#" target="_blank" aria-label="Instagram"><ion-icon name="logo-instagram"></ion-icon></a>
-            <a href="https://x.com/" target="_blank" aria-label="X (Twitter)"><i class="fa-brands fa-x-twitter"></i></a>
-            <a href="https://www.youtube.com/@CortacMihai" target="_blank" aria-label="YouTube"><ion-icon name="logo-youtube"></ion-icon></a>
-            <a href="https://www.tiktok.com/" target="_blank" aria-label="TikTok"><ion-icon name="logo-tiktok"></ion-icon></a>
+            <a href="https://www.instagram.com/c.mihai16/#" target="_blank" rel="noopener noreferrer" aria-label="Suivez-nous sur Instagram"><ion-icon name="logo-instagram"></ion-icon></a>
+            <a href="https://x.com/" target="_blank" rel="noopener noreferrer" aria-label="Suivez-nous sur X (Twitter)"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="https://www.youtube.com/@CortacMihai" target="_blank" rel="noopener noreferrer" aria-label="Regardez nos vidéos sur YouTube"><ion-icon name="logo-youtube"></ion-icon></a>
+            <a href="https://www.tiktok.com/" target="_blank" rel="noopener noreferrer" aria-label="Suivez-nous sur TikTok"><ion-icon name="logo-tiktok"></ion-icon></a>
         </div>
     </footer>
 
@@ -586,6 +599,9 @@
             <button class="nav-btn next" onclick="navigateGallery(1)">&#10095;</button>
         </div>
     </div>
+
+<br>
+<br>
 
     <script src="index.js"></script>
 </body>
