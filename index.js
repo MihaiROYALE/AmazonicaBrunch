@@ -25,7 +25,7 @@ document.querySelectorAll('.map-link').forEach(link => {
             if (isIOS) {
                 window.location.href = appleMapsURL; // Opens Apple Maps app
             } else {
-                window.location.href = "geo:43.700127,7.273847?q=Marked+Location"; // Opens Google Maps app
+                window.location.href = "https://maps.app.goo.gl/DxqMXqTWVE7574FYA"; // Opens Google Maps app
             }
         } else if (isMac) {
             // 💻 macOS → open Apple Maps web in a NEW tab
