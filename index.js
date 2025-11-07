@@ -23,7 +23,7 @@ document.querySelectorAll('.map-link').forEach(link => {
             if (isIOS) {
                 window.location.href = appleMapsURL; // Opens Apple Maps
             } else {
-                window.location.href = "geo:0,0?q=Hôtel+de+Paris,+Place+du+Casino,+Monte-Carlo,+Monaco"; // Opens Google Maps app
+                window.location.href = googleMapsURL; // Opens Google Maps app
             }
         } else {
             // Desktop: open in new browser tab
