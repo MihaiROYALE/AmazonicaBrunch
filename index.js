@@ -11,9 +11,11 @@ document.querySelectorAll('.map-link').forEach(link => {
     link.addEventListener('click', function (event) {
         event.preventDefault();
 
-        const appleMapsURL = "https://maps.apple.com/?ll=43.700127,7.273847&q=Marked%20Location";
-        const googleMapsURL = "https://maps.app.goo.gl/DxqMXqTWVE7574FYA";
+        // Map URLs
+        const appleMapsURL = "https://maps.apple.com/place?map=explore&address=15+Rue+du+Lycée%2C+06000+Nice%2C+France&coordinate=43.700038%2C7.273754&name=15+Rue+du+Lycée";
+        const googleMapsURL = "https://maps.app.goo.gl/PA8i8EyQFw96BF8A9";
 
+        // Device detection
         const userAgent = navigator.userAgent;
         const isIOS = /iPhone|iPad|iPod/i.test(userAgent);
         const isMac = /Macintosh/i.test(userAgent);
@@ -21,11 +23,11 @@ document.querySelectorAll('.map-link').forEach(link => {
         const isMobile = isIOS || isAndroid;
 
         if (isMobile) {
-            // 📱 Mobile devices → open in native app
+            // 📱 Mobile devices → open in native apps
             if (isIOS) {
                 window.location.href = appleMapsURL; // Opens Apple Maps app
             } else {
-                window.location.href = "https://maps.app.goo.gl/DxqMXqTWVE7574FYA"; // Opens Google Maps app
+                window.location.href = googleMapsURL; // Opens Google Maps app
             }
         } else if (isMac) {
             // 💻 macOS → open Apple Maps web in a NEW tab
