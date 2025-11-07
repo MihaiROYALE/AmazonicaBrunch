@@ -6,6 +6,49 @@ function openModal(id) {
     document.body.style.overflow = 'hidden'; // Prevent background scrolling
 }
 
+/** Redirects to platform-specific maps when a map link is clicked */
+document.querySelectorAll('.map-link').forEach(link => {
+    link.addEventListener('click', function (event) {
+        event.preventDefault();
+
+        const appleMapsURL = "https://maps.apple.com/place?coordinate=43.700127,7.273847&name=Marked%20Location&map=explore";
+        const googleMapsURL = "https://maps.app.goo.gl/DxqMXqTWVE7574FYA";
+
+        const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
+        const isAndroid = /Android/i.test(navigator.userAgent);
+        const isMobile = isIOS || isAndroid;
+
+        if (isMobile) {
+            // Open in native app
+            if (isIOS) {
+                window.location.href = appleMapsURL; // Opens Apple Maps
+            } else {
+                window.location.href = "geo:0,0?q=Hôtel+de+Paris,+Place+du+Casino,+Monte-Carlo,+Monaco"; // Opens Google Maps app
+            }
+        } else {
+            // Desktop: open in new browser tab
+            window.open(googleMapsURL, '_blank');
+        }
+    });
+});
+
+document.querySelectorAll('.phone-link').forEach(link => {
+    link.addEventListener('click', function (event) {
+        event.preventDefault();
+        const number = this.dataset.number;
+        const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+
+        if (isMobile) {
+            window.location.href = `tel:${number}`; // Opens phone app
+        } else {
+            // Desktop: copy number to clipboard
+            navigator.clipboard.writeText(number).then(() => {
+                alert(`Phone number ${number} copied to clipboard.`);
+            });
+        }
+    });
+});
+
 function closeModal(id) {
     const modal = document.getElementById(`${id}-modal`);
     modal.classList.remove('active');
