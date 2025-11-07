@@ -11,22 +11,27 @@ document.querySelectorAll('.map-link').forEach(link => {
     link.addEventListener('click', function (event) {
         event.preventDefault();
 
-        const appleMapsURL = "https://maps.apple.com/place?coordinate=43.700127,7.273847&name=Marked%20Location&map=explore";
+        const appleMapsURL = "https://maps.apple.com/?ll=43.700127,7.273847&q=Marked%20Location";
         const googleMapsURL = "https://maps.app.goo.gl/DxqMXqTWVE7574FYA";
 
-        const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
-        const isAndroid = /Android/i.test(navigator.userAgent);
+        const userAgent = navigator.userAgent;
+        const isIOS = /iPhone|iPad|iPod/i.test(userAgent);
+        const isMac = /Macintosh/i.test(userAgent);
+        const isAndroid = /Android/i.test(userAgent);
         const isMobile = isIOS || isAndroid;
 
         if (isMobile) {
-            // Open in native app
+            // 📱 Mobile devices → open in native app
             if (isIOS) {
-                window.location.href = appleMapsURL; // Opens Apple Maps
+                window.location.href = appleMapsURL; // Opens Apple Maps app
             } else {
-                window.location.href = "https://maps.app.goo.gl/DxqMXqTWVE7574FYA"; // Opens Google Maps app
+                window.location.href = "geo:43.700127,7.273847?q=Marked+Location"; // Opens Google Maps app
             }
+        } else if (isMac) {
+            // 💻 macOS → open Apple Maps web in a NEW tab
+            window.open(appleMapsURL, '_blank');
         } else {
-            // Desktop: open in new browser tab
+            // 🖥️ Other desktops → open Google Maps web in a NEW tab
             window.open(googleMapsURL, '_blank');
         }
     });
