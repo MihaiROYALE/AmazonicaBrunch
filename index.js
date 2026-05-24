@@ -1,4 +1,18 @@
 // Modal functionality
+
+function throttle(func, limit) {
+    let inThrottle;
+    return function() {
+        const args = arguments;
+        const context = this;
+        if (!inThrottle) {
+            func.apply(context, args);
+            inThrottle = true;
+            setTimeout(() => inThrottle = false, limit);
+        }
+    };
+}
+
 function openModal(id) {
     const modal = document.getElementById(`${id}-modal`);
     modal.style.display = 'flex';
@@ -147,6 +161,16 @@ function toggleMenu() {
     hamburger.classList.toggle('active');
 }
 
+// Logo click to scroll to top
+document.addEventListener('DOMContentLoaded', () => {
+    const logo = document.querySelector('.logo');
+    if (logo) {
+        logo.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    }
+});
+
 // Scrollspy functionality
 function updateActiveNavLink() {
     const sections = document.querySelectorAll('section[id]');
@@ -170,7 +194,7 @@ function updateActiveNavLink() {
     });
 }
 
-window.addEventListener('scroll', updateActiveNavLink);
+window.addEventListener('scroll', throttle(updateActiveNavLink, 80), { passive: true });
 
 // Close menu when clicking a link
 document.addEventListener('click', (e) => {
@@ -206,7 +230,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.style.animation = 'fadeInUp 1.2s ease-out forwards';
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0) translateX(0) scale(1)';
                 }
             });
         }, observerOptions);
@@ -214,21 +239,25 @@ document.addEventListener('DOMContentLoaded', () => {
         // Observe sections for animations
         const sections = document.querySelectorAll('section:not(#home)');
         sections.forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(30px)';
             observer.observe(section);
         });
-    
+
         // Observe gallery images for fade-in
         const galleryImagesEls = document.querySelectorAll('.gallery-container img');
         galleryImagesEls.forEach(img => {
+            img.style.opacity = '0';
+            img.style.transform = 'translateY(20px) scale(0.95)';
             observer.observe(img);
         });
-    
-        // Parallax effect for hero video
-        window.addEventListener('scroll', () => {
-            const scrolled = window.pageYOffset;
-            const heroVideo = document.querySelector('.hero-video');
-            if (heroVideo) {
-                heroVideo.style.transform = `translateY(${scrolled * 0.5}px)`;
-            }
+
+        // Observe menu items for staggered animation
+        const menuItems = document.querySelectorAll('.dish');
+        menuItems.forEach((item, index) => {
+            item.style.opacity = '0';
+            item.style.transform = 'translateX(-20px)';
+            item.style.transitionDelay = `${index * 0.1}s`;
+            observer.observe(item);
         });
 });
