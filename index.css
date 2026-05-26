@@ -819,7 +819,7 @@ footer p {
 }
 
 .category.expanded .dishes {
-    max-height: 700px;
+    max-height: 1000px;
 }
 
 .category li {
