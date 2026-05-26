@@ -1,3 +1,10 @@
+// =====================================================
+// AMAZONICA BRUNCH - JS (fixes applied 2026)
+// - Gallery navigation completely fixed + preloading + smooth transitions
+// - Responsive hero video (desktop/mobile source switching + fallback)
+// - All other logic preserved + minor perf/robustness improvements
+// =====================================================
+
 // Modal functionality
 
 function throttle(func, limit) {
@@ -26,8 +33,8 @@ document.querySelectorAll('.map-link').forEach(link => {
         event.preventDefault();
 
         // Map URLs
-        const appleMapsURL = "https://maps.apple.com/place?map=explore&address=15+Rue+du+Lycée%2C+06000+Nice%2C+France&coordinate=43.700038%2C7.273754&name=15+Rue+du+Lycée";
-        const googleMapsURL = "https://maps.app.goo.gl/PA8i8EyQFw96BF8A9";
+        const appleMapsURL = "https://maps.apple/p/7du_ijItqzZhR4";
+        const googleMapsURL = "https://maps.app.goo.gl/qcsy7FfSdY8zkm886";
 
         // Device detection
         const userAgent = navigator.userAgent;
@@ -126,31 +133,76 @@ function toggleCategory(header) {
     category.classList.toggle('expanded');
 }
 
-// Gallery modal functionality
+// ============================================
+// GALLERY / LIGHTBOX - FIXED & OPTIMIZED
+// ============================================
+// Bug fix: previous array referenced non-existent files ("restaurant pic X.JPG").
+// Now uses the exact 3 images that exist and are rendered in .gallery-horizontal.
+// This makes indexOf() always succeed and navigation reliable.
 let currentGalleryIndex = 0;
 const galleryImages = [
-    'restaurant pic 1.JPG',
-    'restaurant pic 2.JPG',
-    'restaurant pic 3.JPG',
-    'restaurant pic 4.JPG',
-    'restaurant pic 5.JPG',
-    'restaurant pic 6.JPG',
-    'restaurant pic 7.JPG',
-    'restaurant pic 8.JPG',
-    'restaurant pic 9.JPG'
+    'file_00000000fcc871f4a1ae3f1aacf7673b.jpg',
+    'file_00000000abb471f48d4f36f25b99260c (1).jpg',
+    'file_0000000085c07243b40869146b6301b5.jpg'
 ];
+
+// Preload adjacent images for instant navigation (performance optimization)
+function preloadAdjacentGalleryImages(currentIdx) {
+    const len = galleryImages.length;
+    const prevIdx = (currentIdx - 1 + len) % len;
+    const nextIdx = (currentIdx + 1) % len;
+
+    [prevIdx, nextIdx].forEach(idx => {
+        const img = new Image();
+        img.decoding = 'async';
+        img.src = galleryImages[idx];
+    });
+}
 
 function openGalleryModal(src) {
     currentGalleryIndex = galleryImages.indexOf(src);
-    document.getElementById('gallery-image').src = src;
+    if (currentGalleryIndex === -1) {
+        // Safety fallback (should never happen now)
+        currentGalleryIndex = 0;
+    }
+
+    const galleryImg = document.getElementById('gallery-image');
+    galleryImg.style.transition = 'opacity 0.1s ease';
+    galleryImg.style.opacity = '0.7'; // subtle quick fade for perceived speed
+
+    galleryImg.src = galleryImages[currentGalleryIndex];
+
+    // Ensure image is fully loaded before showing (prevents partial render)
+    galleryImg.onload = () => {
+        galleryImg.style.opacity = '1';
+    };
+
     openModal('gallery');
+
+    // Preload neighbors immediately for buttery next/prev
+    preloadAdjacentGalleryImages(currentGalleryIndex);
 }
 
 function navigateGallery(direction) {
-    currentGalleryIndex += direction;
-    if (currentGalleryIndex < 0) currentGalleryIndex = galleryImages.length - 1;
-    if (currentGalleryIndex >= galleryImages.length) currentGalleryIndex = 0;
-    document.getElementById('gallery-image').src = galleryImages[currentGalleryIndex];
+    const len = galleryImages.length;
+    currentGalleryIndex = (currentGalleryIndex + direction + len) % len;
+
+    const galleryImg = document.getElementById('gallery-image');
+
+    // Fast crossfade transition (much smoother than instant src swap)
+    galleryImg.style.transition = 'opacity 0.12s ease';
+    galleryImg.style.opacity = '0.6';
+
+    // Small timeout allows CSS transition to start before src change
+    setTimeout(() => {
+        galleryImg.src = galleryImages[currentGalleryIndex];
+
+        galleryImg.onload = () => {
+            galleryImg.style.opacity = '1';
+            // Preload new neighbors after each navigation
+            preloadAdjacentGalleryImages(currentGalleryIndex);
+        };
+    }, 30);
 }
 
 // Toggle mobile menu
@@ -244,14 +296,6 @@ document.addEventListener('DOMContentLoaded', () => {
             observer.observe(section);
         });
 
-        // Observe gallery images for fade-in
-        const galleryImagesEls = document.querySelectorAll('.gallery-container img');
-        galleryImagesEls.forEach(img => {
-            img.style.opacity = '0';
-            img.style.transform = 'translateY(20px) scale(0.95)';
-            observer.observe(img);
-        });
-
         // Observe menu items for staggered animation
         const menuItems = document.querySelectorAll('.dish');
         menuItems.forEach((item, index) => {
@@ -260,4 +304,59 @@ document.addEventListener('DOMContentLoaded', () => {
             item.style.transitionDelay = `${index * 0.1}s`;
             observer.observe(item);
         });
+
+        // ============================================
+        // RESPONSIVE HERO VIDEO (Desktop vs Mobile)
+        // ============================================
+        function setResponsiveHeroVideo() {
+            const video = document.getElementById('hero-video');
+            if (!video) return;
+
+            const isMobile = window.matchMedia('(max-width: 768px)').matches;
+            // Desktop: full quality video
+            const desktopSrc = 'restaurnat bg video.mp4';
+            // Mobile: optimized video (user should create a lighter version)
+            const mobileSrc = 'restaurnat bg video mobile.mp4';
+
+            const targetSrc = isMobile ? mobileSrc : desktopSrc;
+
+            // Avoid unnecessary reload if already correct
+            const currentSource = video.querySelector('source');
+            if (currentSource && currentSource.getAttribute('src') === targetSrc) {
+                return;
+            }
+
+            // Clear previous sources
+            video.innerHTML = '';
+
+            const source = document.createElement('source');
+            source.src = targetSrc;
+            source.type = 'video/mp4';
+            video.appendChild(source);
+
+            // Reload the video with new source (critical for dynamic switch)
+            video.load();
+
+            // Fallback: if mobile video fails to load (404 etc), use desktop version
+            video.onerror = () => {
+                if (isMobile && targetSrc === mobileSrc) {
+                    video.innerHTML = '';
+                    const fallback = document.createElement('source');
+                    fallback.src = desktopSrc;
+                    fallback.type = 'video/mp4';
+                    video.appendChild(fallback);
+                    video.load();
+                }
+            };
+        }
+
+        // Initial load
+        setResponsiveHeroVideo();
+
+        // Update on resize (debounced via existing throttle pattern)
+        let resizeTimer;
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(setResponsiveHeroVideo, 300);
+        }, { passive: true });
 });
