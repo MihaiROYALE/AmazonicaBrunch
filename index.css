@@ -1,4 +1,3 @@
-/* Reset and Base Styles */
 * {
     margin: 0;
     padding: 0;
@@ -25,6 +24,7 @@
 
 html {
     scroll-behavior: smooth;
+    height: 100%; /* ensures no artificial extra scroll height */
 }
 
 body {
@@ -34,6 +34,9 @@ body {
     background: linear-gradient(135deg, #000000 0%, #333333 100%);
     letter-spacing: 0.3px;
     position: relative;
+    min-height: 100%; /* content-driven height, no forced extra space below footer */
+    display: flex;
+    flex-direction: column;
 }
 
 body::before {
@@ -398,33 +401,62 @@ h2 {
     display: flex;
     gap: 1rem;
     overflow-x: auto;
+    overflow-y: visible; /* FIX #8: allow hover zoom to expand fully without top/bottom clipping */
     -webkit-overflow-scrolling: touch;
     scroll-behavior: smooth;
     flex: 2;
     scrollbar-width: none;
     -ms-overflow-style: none;
+    content-visibility: auto;
+    contain-intrinsic-size: 300px 250px; /* matches desktop .gallery-item size for better performance */
+    padding: 8px 0; /* breathing room so scaled images (scale 1.04) don't clip */
 }
 
 .gallery-horizontal::-webkit-scrollbar {
-    display: none; /* Chrome, Safari, Opera */
+    display: none;
 }
 
-.gallery-horizontal img {
-    width: 300px;
-    height: 250px;
-    object-fit: cover;
-    border-radius: 10px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-    transition: all 0.3s ease;
-    cursor: pointer;
+/* ============================================
+   GALLERY THUMBNAILS - DESKTOP + MOBILE SEPARATE STYLES
+   ============================================
+   Desktop (base styles below): Original premium look
+     - Fixed card size (300x250)
+     - object-fit: cover for clean uniform row
+     - Strong hover zoom with no clipping (overflow-y:visible on container)
+   Mobile (@media rules further down): Full image visibility
+     - Adaptive sizing + object-fit: contain
+     - No aggressive cropping of photos
+   This separation prevents mobile fixes from breaking desktop.
+*/
+
+/* DESKTOP GALLERY (default / large screens) */
+.gallery-item {
     flex-shrink: 0;
-    filter: brightness(0.9);
+    width: 300px;
+    height: 250px;           /* exact original desktop proportions */
+    overflow: hidden;
+    border-radius: 10px;
+    background: transparent; /* no letterbox needed with cover */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+    position: relative;
 }
 
-.gallery-horizontal img:hover {
-    transform: scale(1.05) translateY(-5px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-    filter: brightness(1.1);
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;       /* restore clean, uniform desktop cropping */
+    display: block;
+    transition: transform 0.2s ease;
+    cursor: pointer;
+    transform: translateZ(0);
+    backface-visibility: hidden;
+}
+
+/* Desktop hover zoom - premium feel, fully visible thanks to .gallery-horizontal overflow-y:visible */
+.gallery-item:hover img {
+    transform: scale(1.04) translateZ(0);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+    z-index: 2;
 }
 
 .about-image img {
@@ -533,18 +565,22 @@ h2 {
 
 /* Footer */
 footer {
-    background: rgba(0, 0, 0, 0.95);
+    background: #000000; /* pure black to blend seamlessly with bottom of page - fixes gray bar issue */
     padding: 1rem 1rem;
     border-top: 1px solid rgba(0, 0, 0, 0.3);
     box-shadow: 0 -8px 32px rgba(0, 0, 0, 0.5);
     text-align: center;
+    margin-top: auto; /* when flex column on body, pushes footer to natural bottom without extra space */
 }
 
 .social-icons {
     display: flex;
-    justify-content: center;
-    gap: 2rem;
+    justify-content: space-evenly; /* perfectly even spacing between icons */
     align-items: center;
+    max-width: 320px; /* keeps the group compact and truly centered in footer */
+    margin: 0 auto;   /* guarantees horizontal centering of the whole icon group */
+    flex-wrap: wrap;
+    gap: 1.75rem;
 }
 
 .social-icons a {
@@ -615,6 +651,13 @@ footer p {
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
 }
 
+/* Gallery lightbox specific: allow the image to size naturally without the general modal constraints clipping it */
+.modal-content.gallery-modal-content {
+    overflow: hidden;
+    max-height: none;
+    padding: 0;
+}
+
 .gallery-modal-content {
     width: 100%;
     height: 100%;
@@ -622,12 +665,29 @@ footer p {
     align-items: center;
     justify-content: center;
     position: relative;
+    overflow: hidden; /* prevent any scroll from clipping the image */
 }
 
 #gallery-image {
     width: 100%;
     height: 100%;
     object-fit: contain;
+    /* Performance & smoothness optimizations for gallery lightbox */
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    will-change: opacity;
+    image-rendering: -webkit-optimize-contrast;
+    transition: opacity 0.12s ease; /* matches JS fast crossfade */
+}
+
+/* Desktop lightbox: prevent extremely wide/tall images from becoming unusable */
+@media (min-width: 769px) {
+    #gallery-image {
+        max-width: 92vw;
+        max-height: 88vh;
+        width: auto;
+        height: auto;
+    }
 }
 
 .nav-btn {
@@ -1024,8 +1084,10 @@ footer p {
 
     .social-icons {
         flex-direction: row;
-        gap: 1.5rem;
-        justify-content: center;
+        gap: 1.25rem;
+        justify-content: space-evenly;
+        max-width: 280px;
+        margin: 0 auto;
     }
 
     .social-icons a {
@@ -1070,16 +1132,42 @@ footer p {
         padding-bottom: 1rem;
     }
 
-    .gallery-horizontal img {
-        min-width: 250px;
-        height: 200px;
-        object-fit: cover;
+    /* MOBILE GALLERY (768px and below) - Full image visibility, no aggressive cropping */
+    .gallery-item {
+        width: 220px;
+        height: auto;              /* let aspect-ratio control height */
+        aspect-ratio: 16 / 10;
+        background: #0a0a0a;       /* subtle letterbox for contain */
+    }
+
+    .gallery-item img {
+        object-fit: contain;       /* show entire photo */
+    }
+
+    /* Disable strong hover zoom on mobile (touch devices) for cleaner experience */
+    .gallery-item:hover img {
+        transform: none;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
     }
 
     .modal-content {
         max-width: 95%;
         max-height: 95%;
         padding: 1rem;
+    }
+
+    /* LIGHTBOX MOBILE FIX (#12): full image visibility, room for close button + arrows */
+    .modal-content.gallery-modal-content {
+        padding: 0;
+        max-height: none;
+    }
+
+    #gallery-image {
+        width: auto !important;
+        height: auto !important;
+        max-width: 90vw;
+        max-height: 72vh; /* leaves space for top close button and bottom safe area */
+        object-fit: contain;
     }
 
     .close {
@@ -1132,10 +1220,21 @@ footer p {
         grid-template-columns: 1fr;
     }
 
-    .gallery-horizontal img {
-        min-width: 200px;
-        height: 180px;
-        object-fit: cover;
+    /* Small phone MOBILE GALLERY - even more responsive, still full image */
+    .gallery-item {
+        width: 78vw;
+        max-width: 260px;
+        height: auto;
+        aspect-ratio: 16 / 10;
+        background: #0a0a0a;
+    }
+
+    .gallery-item img {
+        object-fit: contain;
+    }
+
+    .gallery-item:hover img {
+        transform: none;
     }
 
     .modal-content {
@@ -1145,8 +1244,15 @@ footer p {
         border-radius: 0;
     }
 
-    .gallery-modal-content {
+    /* Extra small phones: even more generous image space while keeping full visibility */
+    .modal-content.gallery-modal-content {
         padding: 0;
+    }
+
+    #gallery-image {
+        max-width: 94vw;
+        max-height: 76vh; /* more room on tiny screens */
+        object-fit: contain;
     }
 
     .close {
