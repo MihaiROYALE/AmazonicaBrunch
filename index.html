@@ -3,11 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Amazonica Brunch - Où la nature rencontre l'élégance dans chaque bouchée. Un restaurant de brunch luxueux inspiré de la jungle.">
-    <meta name="keywords" content="brunch, restaurant, Amazonica, jungle, élégant, nature">
+    <meta name="description" content="Amazonica Brunch - Refined brunch experience with tropical elegance. Modern café culture meets lush greenery in a stylish, relaxing atmosphere in Nice.">
+    <meta name="keywords" content="brunch, restaurant, Amazonica, Nice, tropical, élégant, café, modern brunch">
     <meta name="author" content="Amazonica Brunch">
     <meta name="robots" content="index, follow">
     <title>Amazonica Brunch</title>
+
+    <link rel="icon" type="image/x-icon" href="B48895BC-D70A-403C-87DD-F7A2F7FFEECD 2.PNG">
+    <link rel="icon" type="image/png" sizes="32x32" href="B48895BC-D70A-403C-87DD-F7A2F7FFEECD 2.PNG">
+    <link rel="apple-touch-icon" sizes="180x180" href="B48895BC-D70A-403C-87DD-F7A2F7FFEECD 2.PNG">
+    <!-- End Favicon -->
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
@@ -19,6 +25,7 @@
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </head>
 <body>
+
     <header>
         <div class="logo">
             <span class="lang-en">Amazonica Brunch</span>
@@ -80,8 +87,8 @@
 
     <main id="main-content">
     <section id="home" class="hero">
-        <video autoplay muted loop playsinline class="hero-video" loading="lazy">
-            <source src="restaurnat bg video.mp4" type="video/mp4">
+        <video id="hero-video" autoplay muted loop playsinline class="hero-video" preload="auto">
+            <!-- Video source injected dynamically by JS for desktop vs mobile -->
         </video>
         <div class="hero-content">
             <h1>
@@ -120,14 +127,14 @@
                         <span class="lang-it">Il Nostro Menu</span>
                         <span class="lang-es">Nuestro Menú</span>
                     </h2>
-                    <p>
-                        <span class="lang-en">Indulge in our carefully crafted brunch selections, featuring fresh, sustainable ingredients inspired by the Amazon's bounty. Each dish tells a story of nature's elegance.</span>
-                        <span class="lang-fr">Laissez-vous tenter par nos sélections de brunch soigneusement élaborées, mettant en vedette des ingrédients frais et durables inspirés des richesses de l'Amazonie. Chaque plat raconte une histoire de l'élégance de la nature.</span>
-                        <span class="lang-ru">Наслаждайтесь нашими тщательно приготовленными блюдами бранча, с использованием свежих, устойчивых ингредиентов, вдохновленных богатством Амазонии. Каждое блюдо рассказывает историю элегантности природы.</span>
-                        <span class="lang-ro">Bucurați-vă de selecțiile noastre de brunch atent elaborate, cu ingrediente proaspete și sustenabile inspirate din bogăția Amazonului. Fiecare preparat spune o poveste despre eleganța naturii.</span>
-                        <span class="lang-it">Deliziati con le nostre selezioni di brunch attentamente preparate, con ingredienti freschi e sostenibili ispirati alla ricchezza dell'Amazzonia. Ogni piatto racconta una storia dell'eleganza della natura.</span>
-                        <span class="lang-es">Deléitate con nuestras selecciones de brunch cuidadosamente elaboradas, con ingredientes frescos y sostenibles inspirados en la riqueza del Amazonas. Cada plato cuenta una historia de la elegancia de la naturaleza.</span>
-                    </p>
+                        <p>
+                            <span class="lang-en">Discover a refined brunch experience crafted with fresh ingredients, vibrant flavors, and beautifully presented dishes. Inspired by tropical elegance and modern café culture, every plate is made to be both comforting and unforgettable.</span>
+                            <span class="lang-fr">Découvrez une expérience brunch raffinée élaborée avec des ingrédients frais, des saveurs vibrantes et des plats magnifiquement présentés. Inspirée par l'élégance tropicale et la culture moderne des cafés, chaque assiette est conçue pour être à la fois réconfortante et inoubliable.</span>
+                            <span class="lang-ru">Откройте для себя изысканный бранч, приготовленный из свежих ингредиентов, с яркими вкусами и красиво оформленными блюдами. Вдохновленная тропической элегантностью и современной культурой кафе, каждая тарелка создана, чтобы быть одновременно уютной и незабываемой.</span>
+                            <span class="lang-ro">Descoperiți o experiență de brunch rafinată, creată cu ingrediente proaspete, arome vibrante și preparate frumos prezentate. Inspirată de eleganța tropicală și de cultura cafenelelor moderne, fiecare farfurie este gândită să fie atât reconfortantă, cât și memorabilă.</span>
+                            <span class="lang-it">Scoprite un'esperienza brunch raffinata, creata con ingredienti freschi, sapori vivaci e piatti splendidamente presentati. Ispirato all'eleganza tropicale e alla cultura moderna dei caffè, ogni piatto è pensato per essere al tempo stesso confortante e indimenticabile.</span>
+                            <span class="lang-es">Descubre una experiencia de brunch refinada, elaborada con ingredientes frescos, sabores vibrantes y platos bellamente presentados. Inspirada en la elegancia tropical y la cultura moderna de los cafés, cada plato está pensado para ser a la vez reconfortante e inolvidable.</span>
+                        </p>
                     <button class="menu-btn" onclick="openModal('menu')">
                         <span class="lang-en">View Menu</span>
                         <span class="lang-fr">Voir le Menu</span>
@@ -151,33 +158,33 @@
                 <span class="lang-it">Chi Siamo</span>
                 <span class="lang-es">Sobre Nosotros</span>
             </h2>
-            <p>
-                <span class="lang-en">Amazonica Brunch is a sanctuary where the lush beauty of the jungle intertwines with culinary artistry. Inspired by the Amazon's vibrant ecosystem, we celebrate nature's bounty through exquisite brunch dishes that honor animals, plants, and the delicate balance of life. Our philosophy is simple: every meal is a journey into elegance and sustainability.</span>
-                <span class="lang-fr">Amazonica Brunch est un sanctuaire où la beauté luxuriante de la jungle s'entremêle avec l'art culinaire. Inspirés par l'écosystème vibrant de l'Amazonie, nous célébrons les richesses de la nature à travers des plats de brunch exquis qui honorent les animaux, les plantes et l'équilibre délicat de la vie. Notre philosophie est simple : chaque repas est un voyage vers l'élégance et la durabilité.</span>
-                <span class="lang-ru">Amazonica Brunch - это убежище, где пышная красота джунглей переплетается с кулинарным искусством. Вдохновленные vibrantной экосистемой Амазонии, мы празднуем дары природы через изысканные блюда бранча, которые чтят животных, растения и хрупкий баланс жизни. Наша философия проста: каждый прием пищи - это путешествие в элегантность и устойчивость.</span>
-                <span class="lang-ro">Amazonica Brunch este un sanctuar unde frumusețea luxuriantă a junglei se împletește cu arta culinară. Inspirați de ecosistemul vibrant al Amazonului, sărbătorim bogăția naturii prin preparate de brunch rafinate care onorează animalele, plantele și echilibrul delicat al vieții. Filosofia noastră este simplă: fiecare masă este o călătorie către eleganța și sustenabilitate.</span>
-                <span class="lang-it">Amazonica Brunch è un santuario dove la bellezza lussureggiante della giungla si intreccia con l'arte culinaria. Ispirati dall'ecosistema vibrante dell'Amazzonia, celebriamo i doni della natura attraverso piatti di brunch squisiti che onorano animali, piante e il delicato equilibrio della vita. La nostra filosofia è semplice: ogni pasto è un viaggio verso l'eleganza e la sostenibilità.</span>
-                <span class="lang-es">Amazonica Brunch es un santuario donde la belleza exuberante de la jungla se entrelaza con el arte culinario. Inspirados en el vibrante ecosistema del Amazonas, celebramos los dones de la naturaleza a través de exquisitos platos de brunch que honran a los animales, plantas y el delicado equilibrio de la vida. Nuestra filosofía es simple: cada comida es un viaje hacia la elegancia y la sostenibilidad.</span>
-            </p>
-            
+                <p>
+                    <span class="lang-en">At Amazonica Brunch, we created a space where modern brunch culture meets tropical elegance. Surrounded by lush greenery and a warm atmosphere, our restaurant is designed to offer a relaxing experience with beautifully crafted food, specialty drinks, and a welcoming ambiance for every moment of the day.</span>
+                    <span class="lang-fr">Chez Amazonica Brunch, nous avons créé un espace où la culture moderne du brunch rencontre l'élégance tropicale. Entouré d'une verdure luxuriante et d'une atmosphère chaleureuse, notre restaurant est conçu pour offrir une expérience relaxante avec une cuisine raffinée, des boissons signature et une ambiance accueillante à chaque moment de la journée.</span>
+                    <span class="lang-ru">В Amazonica Brunch мы создали пространство, где современная культура бранча встречается с тропической элегантностью. В окружении пышной зелени и теплой атмосферы наш ресторан создан для того, чтобы предложить расслабляющий опыт с изысканно приготовленными блюдами, авторскими напитками и гостеприимной обстановкой в любое время дня.</span>
+                    <span class="lang-ro">La Amazonica Brunch, am creat un spațiu în care cultura modernă a brunchului se întâlnește cu eleganța tropicală. Înconjurat de verdeață luxuriantă și de o atmosferă caldă, restaurantul nostru este conceput pentru a oferi o experiență relaxantă, cu preparate atent pregătite, băuturi speciale și o ambianță primitoare pentru fiecare moment al zilei.</span>
+                    <span class="lang-it">Da Amazonica Brunch, abbiamo creato uno spazio in cui la cultura moderna del brunch incontra l'eleganza tropicale. Circondato da una vegetazione rigogliosa e da un'atmosfera calda, il nostro ristorante è pensato per offrire un'esperienza rilassante con piatti curati, bevande speciali e un'ambienza accogliente per ogni momento della giornata.</span>
+                    <span class="lang-es">En Amazonica Brunch, hemos creado un espacio donde la cultura moderna del brunch se une con la elegancia tropical. Rodeado de vegetación exuberante y una atmósfera cálida, nuestro restaurante está diseñado para ofrecer una experiencia relajante con platos cuidadosamente elaborados, bebidas especiales y un ambiente acogedor para cada momento del día.</span>
+                </p>
             <div class="gallery-container">
                 <div class="gallery-horizontal">
-                    <img src="Brunch1.jpg" loading="lazy" onclick="openGalleryModal(this.src)">
-                    <img src="Brunch2.jpg" loading="lazy" onclick="openGalleryModal(this.src)">
-                    <img src="Brunch3.jpg" loading="lazy" onclick="openGalleryModal(this.src)">
-                    <img src="Brunch4.jpg" loading="lazy" onclick="openGalleryModal(this.src)">
-                    <img src="Brunch5.jpg" loading="lazy" onclick="openGalleryModal(this.src)">
-                    <img src="Brunch6.jpg" loading="lazy" onclick="openGalleryModal(this.src)">
-                    <img src="Brunch7.jpg" loading="lazy" onclick="openGalleryModal(this.src)">
-                    <img src="Brunch8.png" loading="lazy" onclick="openGalleryModal(this.src)">
-                    <img src="Brunch9.png" loading="lazy" onclick="openGalleryModal(this.src)">
-                    <img src="Brunch10.png" loading="lazy" onclick="openGalleryModal(this.src)">
+                    <!-- 
+                    Gallery wrappers (.gallery-item) allow completely separate 
+                    desktop (cover + fixed size) vs mobile (contain + adaptive) styling.
+                    -->
+                    <div class="gallery-item">
+                        <img src="file_00000000fcc871f4a1ae3f1aacf7673b.jpg" loading="lazy" decoding="async" onclick="openGalleryModal(this.src)">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="file_00000000abb471f48d4f36f25b99260c (1).jpg" loading="lazy" decoding="async" onclick="openGalleryModal(this.src)">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="file_0000000085c07243b40869146b6301b5.jpg" loading="lazy" decoding="async" onclick="openGalleryModal(this.src)">
+                    </div>
                 </div>
             </div>
         </div>
     </section>
-
-
 
     <section id="contact" class="contact">
         <div class="container">
@@ -222,7 +229,7 @@
                         <span class="lang-ro">Adresă:</span>
                         <span class="lang-it">Indirizzo:</span>
                         <span class="lang-es">Dirección:</span>
-                    <a href="https://maps.app.goo.gl/PA8i8EyQFw96BF8A9" target="_blank" title="open in maps" class="map-link">13 Rue Lycée</a>
+                    <a href="https://maps.app.goo.gl/qcsy7FfSdY8zkm886" target="_blank" title="open in maps" class="map-link">13 Rue Lycée</a>
 
                     <p><strong>
                         <span class="lang-en">Phone:</span>
@@ -231,15 +238,15 @@
                         <span class="lang-ro">Telefon:</span>
                         <span class="lang-it">Telefono:</span>
                         <span class="lang-es">Teléfono:</span>
-                    <a href="#" class="phone-link" data-number="+33712345678">+33 7 12 34 56 78</a>
+                    <a href="#" class="phone-link" data-number="+33631166295">+33 6 31 16 62 95</a>
 
                     <p><strong>
-                        <span class="lang-en">Hours: Mon–Sun 8:00 AM – 4:00 PM</span>
-                        <span class="lang-fr">Heures: Lun–Dim 8h00 – 16h00</span>
-                        <span class="lang-ru">Часы работы: Пн–Вс 8:00 – 16:00</span>
-                        <span class="lang-ro">Ore: Lun–Dum 8:00 – 16:00</span>
-                        <span class="lang-it">Orari: Lun–Dom 8:00 – 16:00</span>
-                        <span class="lang-es">Horarios: Lun–Dom 8:00 – 16:00</span>
+                        <span class="lang-en">Hours: Mon–Sun 8:00 AM – 5:00 PM</span>
+                        <span class="lang-fr">Heures: Lun–Dim 8h00 – 17h00</span>
+                        <span class="lang-ru">Часы работы: Пн–Вс 8:00 – 17:00</span>
+                        <span class="lang-ro">Ore: Lun–Dum 8:00 – 17:00</span>
+                        <span class="lang-it">Orari: Lun–Dom 8:00 – 17:00</span>
+                        <span class="lang-es">Horarios: Lun–Dom 8:00 – 17:00</span>
                         </strong></p>
                     <div class="map-placeholder">
                     </div>
@@ -250,10 +257,9 @@
 
     <footer>
         <div class="social-icons">
-            <a href="https://www.instagram.com/c.mihai16/#" target="_blank" rel="noopener noreferrer" aria-label="Suivez-nous sur Instagram"><ion-icon name="logo-instagram"></ion-icon></a>
-            <a href="https://x.com/" target="_blank" rel="noopener noreferrer" aria-label="Suivez-nous sur X (Twitter)"><i class="fa-brands fa-x-twitter"></i></a>
-            <a href="https://www.youtube.com/@CortacMihai" target="_blank" rel="noopener noreferrer" aria-label="Regardez nos vidéos sur YouTube"><ion-icon name="logo-youtube"></ion-icon></a>
-            <a href="https://www.tiktok.com/" target="_blank" rel="noopener noreferrer" aria-label="Suivez-nous sur TikTok"><ion-icon name="logo-tiktok"></ion-icon></a>
+            <a href="https://www.instagram.com/amazonicabrunch/" target="_blank" rel="noopener noreferrer" aria-label="Suivez-nous sur Instagram"><ion-icon name="logo-instagram"></ion-icon></a>
+            <a href="https://www.youtube.com/@AmazonicaBrunch" target="_blank" rel="noopener noreferrer" aria-label="Regardez nos vidéos sur YouTube"><ion-icon name="logo-youtube"></ion-icon></a>
+            <a href="https://www.tiktok.com/@amazonicabrunch" target="_blank" rel="noopener noreferrer" aria-label="Suivez-nous sur TikTok"><ion-icon name="logo-tiktok"></ion-icon></a>
         </div>
         <p>&copy; 2026 Amazonica Brunch</p>
     </footer>
@@ -2331,9 +2337,6 @@
             <button class="nav-btn next" onclick="navigateGallery(1)">&#10095;</button>
         </div>
     </div>
-
-<br>
-<br>
 
     <script src="index.js"></script>
 </body>
