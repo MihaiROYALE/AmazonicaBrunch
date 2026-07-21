@@ -353,6 +353,29 @@ h2 {
     box-shadow: 0 8px 25px rgba(255, 215, 0, 0.5);
 }
 
+.pdf-menu-btn {
+    display: inline-block;
+    background: transparent;
+    color: #FFD700;
+    border: 2px solid #FFD700;
+    padding: 0.9rem 2rem;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    margin-top: 1rem;
+    font-family: 'Poppins', sans-serif;
+}
+
+.pdf-menu-btn:hover {
+    background: #FFD700;
+    color: #000000;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(255, 215, 0, 0.5);
+}
+
 /* About Gallery Section */
 .about-gallery {
     background: rgba(0, 0, 0, 0.95);
@@ -1025,7 +1048,7 @@ footer p {
         padding: 4rem 1rem;
     }
 
-    .menu-btn, .reserve-btn {
+    .menu-btn, .reserve-btn, .pdf-menu-btn {
         padding: 1.2rem 2.5rem;
         font-size: 1.2rem;
         min-height: 48px; /* Touch-friendly */
@@ -1200,7 +1223,7 @@ footer p {
         padding: 3rem 0.5rem;
     }
 
-    .menu-btn, .reserve-btn {
+    .menu-btn, .reserve-btn, .pdf-menu-btn {
         padding: 1rem 2rem;
         font-size: 1.1rem;
     }
