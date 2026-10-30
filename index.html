@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Amazonica Brunch – Nice</title>
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="48x48" href="favicon-48x48.png">
+<link rel="icon" type="image/png" sizes="192x192" href="favicon-192x192.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="hero">
+  <div class="wrap">
+    <nav>
+      <a class="brand" href="#top">Amazonica Brunch</a>
+      <div>
+        <a href="#menu" data-t="nav_menu"></a><a href="#photos" data-t="nav_photos"></a><a href="#book" data-t="nav_book"></a><a href="#find" data-t="nav_find"></a>
+        <select id="lang" aria-label="Language">
+          <option value="fr">Français</option><option value="en">English</option><option value="ru">Русский</option>
+          <option value="ro">Română</option><option value="it">Italiano</option><option value="es">Español</option>
+        </select>
+      </div>
+    </nav>
+    <h1 id="top">Amazonica Brunch</h1>
+    <p class="slogan" lang="fr">Où la nature rencontre l’élégance, dans chaque bouchée</p>
+    
+    <a class="btn" href="#book" data-t="cta"></a>
+    <div class="hours" data-t="hours"></div>
+  </div>
+</header>
+
+<main>
+<section id="menu">
+  <div class="wrap">
+    <h2 data-t="menu_h"></h2>
+    <p class="lead" data-t="menu_lead"></p>
+    <div class="tabs" role="tablist" id="tabs"></div>
+    <div class="items" id="items" role="tabpanel"></div>
+    <p><a class="btn" id="dl" href="amazonica-brunch-menu.pdf" download="Amazonica-Brunch-Menu.pdf" data-t="dl"></a></p>
+    <p class="note" data-t="note"></p>
+    <div id="printmenu"></div>
+  </div>
+</section>
+
+<section id="photos">
+  <div class="wrap">
+    <h2 data-t="photos_h"></h2>
+    <p class="lead" data-t="photos_lead"></p>
+    <p class="hint" data-t="hint"></p>
+    <div class="gallery">
+      <button class="ph" type="button" aria-label="Photo 1"><img src="images/photo-1.jpg" alt="Burger, salade burrata, pancakes et cocktail rose sur la table" loading="lazy"></button>
+      <button class="ph" type="button" aria-label="Photo 2"><img src="images/photo-2.jpg" alt="La girafe et la décoration jungle du restaurant" loading="lazy"></button>
+      <button class="ph" type="button" aria-label="Photo 3"><img src="images/photo-3.jpg" alt="Burger au fromage avec frites" loading="lazy"></button>
+      <button class="ph" type="button" aria-label="Photo 4"><img src="images/photo-4.jpg" alt="Pancakes aux fruits rouges et sirop" loading="lazy"></button>
+      <button class="ph" type="button" aria-label="Photo 5"><img src="images/photo-5.jpg" alt="Croissant à la pistache et aux fruits rouges" loading="lazy"></button>
+      <button class="ph" type="button" aria-label="Photo 6"><img src="images/photo-6.jpg" alt="Salade burrata avec un cocktail au fruit de la passion" loading="lazy"></button>
+      <button class="ph" type="button" aria-label="Photo 7"><img src="images/photo-7.jpg" alt="Toast garni avec salade" loading="lazy"></button>
+      <button class="ph" type="button" aria-label="Photo 8"><img src="images/photo-8.jpg" alt="Burger, salade burrata et milkshake caramel" loading="lazy"></button>
+    </div>
+    <dialog id="lb" aria-label="Photo"><div class="lb"><div class="lbimg" id="lbimg"></div><div class="lbbar"><button type="button" id="lbprev" data-t="prev"></button><button type="button" id="lbnext" data-t="next"></button><button type="button" id="lbclose" data-t="close"></button></div></div></dialog>
+  </div>
+</section>
+
+<section class="book" id="book">
+  <div class="wrap bookgrid">
+    <div>
+      <h2 data-t="cta"></h2>
+      <p class="lead" data-t="book_lead"></p>
+      <p><a href="tel:+33497148995">04 97 14 89 95</a></p>
+    </div>
+    <form id="bf">
+      <label class="full"><span data-t="l_name"></span><input name="name" required autocomplete="name"></label>
+      <label><span data-t="l_date"></span><input type="date" name="date" id="date" required></label>
+      <label><span data-t="l_time"></span><select name="time" id="time" required></select></label>
+      <label><span data-t="l_guests"></span>
+        <select name="guests" required><option>1</option><option selected>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option></select>
+      </label>
+      <label><span data-t="l_phone"></span><input type="tel" name="phone" required autocomplete="tel"></label>
+      
+      <label class="full"><span data-t="l_notes"></span><textarea name="notes"></textarea></label>
+      <div class="full"><button class="btn" type="submit" data-t="submit"></button></div>
+      <div class="full" id="msg" role="status"></div>
+      <dialog id="sd" aria-label="Booking"><div class="lb"><div class="sdbox"><h3 data-t="sd_title"></h3><a class="btn" id="sdwa" href="#" target="_blank" rel="noopener">WhatsApp</a><a class="btn alt" id="sdcall" href="tel:+33497148995"><span data-t="call"></span> 04 97 14 89 95</a><p data-t="sd_note"></p><button type="button" class="btn alt" id="sdclose" data-t="close"></button></div></div></dialog>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer id="find">
+  <div class="wrap foot">
+    <div>
+      <h3 data-t="nav_find"></h3>
+      <p><a id="maplink" href="https://maps.app.goo.gl/NLW5nHRcU52TRk399" target="_blank" rel="noopener">13 Rue du lycée<br>06000 Nice</a></p>
+      
+      <p><a href="tel:+33497148995">04 97 14 89 95</a></p>
+      <p data-t="hours"></p>
+      <p><button type="button" class="btn alt" id="cbtn" data-t="contact_h"></button></p>
+      <dialog id="cd" aria-label="Contact"><div class="lb"><div class="sdbox"><h3 data-t="contact_h"></h3><a class="btn" id="cdcall" href="tel:+33497148995"><span data-t="call"></span> 04 97 14 89 95</a><a class="btn" id="cdwa" href="#" target="_blank" rel="noopener">WhatsApp</a><button type="button" class="btn alt" id="cdclose" data-t="close"></button></div></div></dialog>
+    </div>
+    <div>
+      <h3 data-t="follow"></h3>
+      <div class="social">
+        <a href="https://www.instagram.com/amazonicabrunch" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://www.tiktok.com/@amazonicabrunch" target="_blank" rel="noopener">TikTok</a>
+        <a href="https://www.facebook.com/profile.php?id=61590335106426" target="_blank" rel="noopener">Facebook</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
